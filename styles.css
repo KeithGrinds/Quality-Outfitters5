@@ -1,0 +1,35 @@
+:root{
+  --bg:#f9f9f9;
+  --text:#111;
+  --accent:#7bc8f6;
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+body{background:var(--bg);color:var(--text);overflow-x:hidden;}
+
+nav{display:flex;justify-content:space-between;padding:20px 5%;}
+nav ul{display:flex;gap:20px;list-style:none;}
+
+.hero{height:80vh;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:10px;text-align:center;}
+.hero h2{font-size:3rem;animation:bounce 2s infinite;}
+.hero p{opacity:0.7;}
+
+/* Bounce Animation */
+@keyframes bounce{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-10px);}
+}
+
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;padding:5%;}
+.card{background:#fff;padding:20px;border-radius:12px;transition:transform 0.3s, box-shadow 0.3s;}
+.card:hover{transform:translateY(-10px);box-shadow:0 0 15px var(--accent);}
+.card img{width:100%;border-radius:10px;}
+.card button{margin-top:10px;padding:10px;width:100%;border:none;background:var(--accent);cursor:pointer;animation:buttonPop 1s infinite;}
+@keyframes buttonPop{0%,100%{transform:scale(1);}50%{transform:scale(1.05);}}
+
+.floating-btn{position:fixed;bottom:20px;right:20px;background:var(--accent);padding:15px;border-radius:50%;box-shadow:0 0 20px var(--accent);animation:float 3s infinite;cursor:pointer;}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+
+/* Cursor */
+.cursor{position:fixed;width:20px;height:20px;background:var(--accent);border-radius:50%;pointer-events:none;mix-blend-mode:difference;}
+
+@media(max-width:768px){.hero h2{font-size:2rem;}nav ul{display:none;}}
